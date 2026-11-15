@@ -102,10 +102,21 @@ img, svg { display: block; }
 }
 .header__row { display: flex; align-items: center; gap: 24px; height: 72px; }
 .logo { display: flex; align-items: center; gap: 10px; }
-.logo__mark { width: 34px; height: 38px; }
-.logo__text { display: flex; flex-direction: column; line-height: 1; }
-.logo__text b { font-family: Manrope, sans-serif; font-weight: 800; font-size: 22px; letter-spacing: .04em; }
-.logo__text small { font-size: 9px; letter-spacing: .18em; text-transform: uppercase; color: var(--muted); margin-top: 4px; }
+.logo__mark { width: 36px; height: 42px; filter: drop-shadow(0 0 6px rgba(138, 43, 226, .35)); }
+.logo__text { display: flex; flex-direction: column; align-items: center; line-height: 1; }
+.logo__text b {
+  font-family: "Arial Black", Manrope, Arial, sans-serif; font-weight: 900; font-size: 23px; letter-spacing: -.02em;
+  background: linear-gradient(135deg, #2A2833 0%, #6E6C78 35%, #2A2833 70%, #55535E 100%);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+[data-theme="dark"] .logo__text b { background-image: linear-gradient(135deg, #fff 0%, #a8a8b0 35%, #fff 70%, #8a8a94 100%); }
+.logo__text b i {
+  font-style: normal;
+  background: linear-gradient(135deg, #7a00ff 0%, #d18cff 50%, #5a00d8 100%);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.logo__text small { display: flex; align-items: center; gap: 5px; font-size: 7.5px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); margin-top: 4px; }
+.logo__text small::before, .logo__text small::after { content: ""; width: 10px; height: 1.5px; background: linear-gradient(90deg, #7a00ff, #d18cff); }
 .nav { display: flex; gap: 28px; margin-left: auto; font-size: 15px; font-weight: 500; }
 .nav a { color: var(--muted); transition: color .2s; }
 .nav a:hover { color: var(--text); }
