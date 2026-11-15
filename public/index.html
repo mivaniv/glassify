@@ -1,0 +1,327 @@
+<!doctype html>
+<html lang="uk" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GLASSIFY — захисне скло для смартфонів</title>
+  <meta name="description" content="Захисне скло Classic, Privacy та Matte для iPhone, Samsung, Xiaomi та інших моделей. Доставка по всій Україні.">
+  <meta name="theme-color" content="#0B0B12">
+  <script>
+    // тема до рендеру, щоб не було блимання
+    (function () {
+      try {
+        var q = new URLSearchParams(location.search).get('theme');
+        var t = (q === 'light' || q === 'dark') ? q : localStorage.getItem('glassify-theme');
+        if (!t) t = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        document.documentElement.setAttribute('data-theme', t);
+      } catch (e) {}
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M16 2 4 7v8c0 7.5 5.1 13.6 12 15 6.9-1.4 12-7.5 12-15V7z' fill='%238A2BE2'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- SVG-іконки -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3 4.5 6v5.5c0 4.6 3.2 8.6 7.5 9.5 4.3-.9 7.5-4.9 7.5-9.5V6z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="m8.5 12 2.5 2.5 4.5-5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-gem" viewBox="0 0 24 24"><path d="M6 4h12l3.5 5L12 20.5 2.5 9z M2.5 9h19 M9 4l-1.5 5L12 20.5 16.5 9 15 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></symbol>
+  <symbol id="i-touch" viewBox="0 0 24 24"><path d="M9.5 11V5.5a1.5 1.5 0 0 1 3 0V11m0-1.5a1.5 1.5 0 0 1 3 0V12m0-1a1.5 1.5 0 0 1 3 0v3.5c0 3.6-2.4 6.5-6 6.5h-.6c-2 0-3.4-.8-4.6-2.3L5 15.6a1.5 1.5 0 0 1 2.3-1.9L9.5 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-eye" viewBox="0 0 24 24"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="3.2" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="1.2" fill="currentColor"/></symbol>
+  <symbol id="i-layers" viewBox="0 0 24 24"><path d="m12 3 9.5 5L12 13 2.5 8z M2.5 12.5 12 17.5l9.5-5 M2.5 16.5 12 21.5l9.5-5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></symbol>
+  <symbol id="i-finger" viewBox="0 0 24 24"><path d="M7 5.5A8 8 0 0 1 20 12v2M4.5 9A8 8 0 0 0 4 12v3m4-3a4 4 0 0 1 8 0v2.5c0 2.6-.6 4.8-1.8 6.5M12 12v2.5c0 2.5-.7 4.6-2 6.3M8 13v1.5c0 1.6-.4 3-1.2 4.2" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
+  <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+  <symbol id="i-moon" viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-chev" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-truck" viewBox="0 0 24 24"><path d="M2.5 6h11v10h-11zM13.5 9.5h4l3 3.5V16h-7z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><circle cx="6.5" cy="17.5" r="1.8" fill="var(--surface)" stroke="currentColor" stroke-width="1.6"/><circle cx="17" cy="17.5" r="1.8" fill="var(--surface)" stroke="currentColor" stroke-width="1.6"/></symbol>
+  <symbol id="i-box" viewBox="0 0 24 24"><path d="m12 2.5 8.5 4.5v10L12 21.5 3.5 17V7z M3.5 7 12 11.5 20.5 7 M12 11.5v10 M7.8 4.8l8.5 4.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></symbol>
+  <symbol id="i-card" viewBox="0 0 24 24"><rect x="2.5" y="5" width="19" height="14" rx="2.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M2.5 9.5h19M6 15h4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
+  <symbol id="i-return" viewBox="0 0 24 24"><path d="M9 14 4 9l5-5M4 9h10.5a5.5 5.5 0 0 1 0 11H11" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24"><path d="M5 3.5h3.5l1.8 4.5-2.3 1.4a11 11 0 0 0 6.6 6.6l1.4-2.3 4.5 1.8V19a1.5 1.5 0 0 1-1.6 1.5C10.5 20 4 13.5 3.5 5.1A1.5 1.5 0 0 1 5 3.5z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></symbol>
+  <symbol id="i-tg" viewBox="0 0 24 24"><path d="M21.5 4 2.8 11.2c-.9.4-.9 1.6 0 1.9l4.7 1.6 1.8 5.6c.2.7 1.1.9 1.6.4l2.6-2.5 4.9 3.6c.6.4 1.4.1 1.6-.6L22.9 5.3c.2-.9-.6-1.6-1.4-1.3zM9.6 14.4l8.3-6.9-6.3 8.1" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></symbol>
+  <symbol id="i-close" viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+</svg>
+
+<header class="header">
+  <div class="container header__row">
+    <a class="logo" href="#top" aria-label="GLASSIFY — на початок">
+      <svg class="logo__mark" viewBox="0 0 40 44" aria-hidden="true">
+        <defs><linearGradient id="lg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#B94DFF"/><stop offset="1" stop-color="#5B1FC9"/></linearGradient></defs>
+        <path d="M20 2 3 8.5v11C3 30 10.3 38.8 20 42c9.7-3.2 17-12 17-22.5v-11z" fill="url(#lg)"/>
+        <path d="M13 9h14l-6 26h-8z" fill="#fff" opacity=".22"/>
+        <path d="M24 9h4l-6 26h-3z" fill="#fff" opacity=".35"/>
+      </svg>
+      <span class="logo__text"><b>GLASSIFY</b><small>Твій екран. Твій захист.</small></span>
+    </a>
+
+    <nav class="nav" id="nav">
+      <a href="#types">Каталог</a>
+      <a href="#benefits">Переваги</a>
+      <a href="#steps">Як наклеїти</a>
+      <a href="#delivery">Доставка і оплата</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+
+    <div class="header__actions">
+      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Перемкнути тему">
+        <span class="theme-toggle__knob">
+          <svg class="ic ic-sun"><use href="#i-sun"/></svg>
+          <svg class="ic ic-moon"><use href="#i-moon"/></svg>
+        </span>
+      </button>
+      <button class="btn btn--primary btn--sm header__cta" type="button" data-open-lead data-source="Шапка">Замовити</button>
+      <button class="burger" id="burger" type="button" aria-label="Меню" aria-expanded="false"><svg class="ic"><use href="#i-menu"/></svg></button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero__glow" aria-hidden="true"></div>
+    <div class="container hero__grid">
+      <div class="hero__content">
+        <span class="pill">Захисне скло для смартфонів</span>
+        <h1>Захисне скло для телефону —<br><span class="grad">надійний захист</span> щодня</h1>
+        <p class="lead">Збережи екран свого смартфона від подряпин, ударів та щоденних пошкоджень. Скло для iPhone, Samsung, Xiaomi та інших моделей.</p>
+
+        <form class="picker" id="pickerForm">
+          <label class="picker__field">
+            <span>Бренд</span>
+            <select id="pickBrand" required></select>
+            <svg class="ic picker__chev"><use href="#i-chev"/></svg>
+          </label>
+          <label class="picker__field">
+            <span>Модель</span>
+            <select id="pickModel" required></select>
+            <svg class="ic picker__chev"><use href="#i-chev"/></svg>
+          </label>
+          <button class="btn btn--primary btn--lg" type="submit">Підібрати скло <svg class="ic"><use href="#i-arrow"/></svg></button>
+        </form>
+
+        <ul class="chips">
+          <li><span class="chip__ic"><svg class="ic"><use href="#i-shield"/></svg></span>Надійний захист</li>
+          <li><span class="chip__ic"><svg class="ic"><use href="#i-gem"/></svg></span>Висока прозорість</li>
+          <li><span class="chip__ic"><svg class="ic"><use href="#i-finger"/></svg></span>Олеофобне покриття</li>
+        </ul>
+      </div>
+
+      <div class="hero__visual" aria-hidden="true">
+        <svg class="hero__shield" viewBox="0 0 200 230"><path d="M100 8 14 40v58c0 56 37 102 86 120 49-18 86-64 86-120V40z" fill="none" stroke="currentColor" stroke-width="3"/></svg>
+        <div class="phone phone--hero">
+          <div class="phone__screen"><span class="phone__island"></span></div>
+        </div>
+        <div class="glass glass--hero"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ТИПИ -->
+  <section class="section" id="types">
+    <div class="container types">
+      <div class="section-head">
+        <h2>Обери тип<br>захисного скла</h2>
+        <p>Різні рішення для твого комфорту та стилю користування.</p>
+      </div>
+      <div class="types__grid">
+        <article class="type-card">
+          <div class="type-card__body">
+            <span class="tag">Хіт</span>
+            <h3>Classic</h3>
+            <p>Класичний захист на кожен день</p>
+            <div class="price">від <b>399 ₴</b></div>
+            <button class="btn btn--ghost btn--sm" type="button" data-open-lead data-glass="Classic" data-source="Картка Classic">Обрати <svg class="ic"><use href="#i-arrow"/></svg></button>
+          </div>
+          <div class="type-card__art"><div class="phone phone--sm"><div class="phone__screen"></div></div><div class="glass glass--sm"></div></div>
+        </article>
+        <article class="type-card">
+          <div class="type-card__body">
+            <h3>Privacy</h3>
+            <p>Захист від сторонніх поглядів</p>
+            <div class="price">від <b>499 ₴</b></div>
+            <button class="btn btn--ghost btn--sm" type="button" data-open-lead data-glass="Privacy" data-source="Картка Privacy">Обрати <svg class="ic"><use href="#i-arrow"/></svg></button>
+          </div>
+          <div class="type-card__art"><div class="phone phone--sm"><div class="phone__screen"></div></div><div class="glass glass--sm glass--privacy"></div></div>
+        </article>
+        <article class="type-card">
+          <div class="type-card__body">
+            <h3>Matte</h3>
+            <p>Комфорт без відблисків і слідів</p>
+            <div class="price">від <b>449 ₴</b></div>
+            <button class="btn btn--ghost btn--sm" type="button" data-open-lead data-glass="Matte" data-source="Картка Matte">Обрати <svg class="ic"><use href="#i-arrow"/></svg></button>
+          </div>
+          <div class="type-card__art"><div class="phone phone--sm"><div class="phone__screen"></div></div><div class="glass glass--sm glass--matte"></div></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ПЕРЕВАГИ -->
+  <section class="section section--tight" id="benefits">
+    <div class="container benefits">
+      <h2>Наші переваги</h2>
+      <ul class="benefits__list">
+        <li><svg class="ic"><use href="#i-gem"/></svg><div><b>Максимальна міцність</b><span>Твердість 9H, стійкість до подряпин</span></div></li>
+        <li><svg class="ic"><use href="#i-touch"/></svg><div><b>Ідеальна чутливість</b><span>Швидка й точна реакція сенсора</span></div></li>
+        <li><svg class="ic"><use href="#i-eye"/></svg><div><b>Кришталева прозорість</b><span>Без спотворення кольорів</span></div></li>
+        <li><svg class="ic"><use href="#i-layers"/></svg><div><b>Олеофобне покриття</b><span>Менше відбитків пальців</span></div></li>
+        <li><svg class="ic"><use href="#i-shield"/></svg><div><b>Надійний захист</b><span>Бар'єр від ударів і тріщин</span></div></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ПОРІВНЯННЯ -->
+  <section class="section">
+    <div class="container compare">
+      <div class="section-head">
+        <h2>Порівняння типів захисного скла</h2>
+        <p>Обери скло, яке найкраще відповідає твоїм потребам.</p>
+      </div>
+      <div class="table-wrap">
+        <table class="table">
+          <thead>
+            <tr><th>Характеристика</th><th class="is-hl">Classic</th><th>Privacy</th><th>Matte</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><svg class="ic"><use href="#i-shield"/></svg>Захист від подряпин</td><td class="is-hl"><svg class="ic yes"><use href="#i-check"/></svg></td><td><svg class="ic yes"><use href="#i-check"/></svg></td><td><svg class="ic yes"><use href="#i-check"/></svg></td></tr>
+            <tr><td><svg class="ic"><use href="#i-eye"/></svg>Захист від сторонніх поглядів</td><td class="is-hl"><span class="no">—</span></td><td><svg class="ic yes"><use href="#i-check"/></svg></td><td><span class="no">—</span></td></tr>
+            <tr><td><svg class="ic"><use href="#i-sun"/></svg>Зменшення відблисків</td><td class="is-hl"><span class="no">—</span></td><td><span class="no">—</span></td><td><svg class="ic yes"><use href="#i-check"/></svg></td></tr>
+            <tr><td><svg class="ic"><use href="#i-touch"/></svg>Чутливість сенсора</td><td class="is-hl"><svg class="ic yes"><use href="#i-check"/></svg></td><td><svg class="ic yes"><use href="#i-check"/></svg></td><td><svg class="ic yes"><use href="#i-check"/></svg></td></tr>
+            <tr><td><svg class="ic"><use href="#i-gem"/></svg>Кришталева прозорість</td><td class="is-hl"><svg class="ic yes"><use href="#i-check"/></svg></td><td><span class="no">—</span></td><td><span class="no">—</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="compare__art" aria-hidden="true">
+        <div class="stack"><i></i><i></i><i></i><div class="phone phone--flat"><div class="phone__screen"></div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- КРОКИ -->
+  <section class="section" id="steps">
+    <div class="container steps">
+      <div class="section-head">
+        <h2>Як наклеїти скло?<br>Легко за 3 кроки</h2>
+        <p>Швидка та проста установка в домашніх умовах. Серветки та наклейки для пилу — в комплекті.</p>
+      </div>
+      <ol class="steps__list">
+        <li class="step"><span class="step__n">1</span><div><h3>Підготуй екран</h3><p>Очисть поверхню від пилу та слідів.</p></div></li>
+        <li class="step"><span class="step__n">2</span><div><h3>Вирівняй та наклей</h3><p>Точно розмісти скло на екрані.</p></div></li>
+        <li class="step"><span class="step__n">3</span><div><h3>Розгладь</h3><p>Видали повітряні бульбашки легким натиском.</p></div></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ДОСТАВКА -->
+  <section class="section section--tight" id="delivery">
+    <div class="container">
+      <div class="delivery">
+        <div class="delivery__title"><svg class="ic"><use href="#i-truck"/></svg><h2>Зручна доставка<br>по всій Україні</h2></div>
+        <ul class="delivery__list">
+          <li><svg class="ic"><use href="#i-box"/></svg><div><b>Швидка відправка</b><span>Нова Пошта, Укрпошта — в день замовлення</span></div></li>
+          <li><svg class="ic"><use href="#i-card"/></svg><div><b>Зручна оплата</b><span>Онлайн або при отриманні</span></div></li>
+          <li><svg class="ic"><use href="#i-return"/></svg><div><b>Легке повернення</b><span>14 днів без зайвих питань</span></div></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section" id="faq">
+    <div class="container faq">
+      <div class="section-head">
+        <h2>FAQ</h2>
+        <p>Часті запитання</p>
+      </div>
+      <div class="faq__list">
+        <details><summary>Чим відрізняється Classic, Privacy і Matte?<svg class="ic"><use href="#i-chev"/></svg></summary><p>Classic — максимально прозоре скло на кожен день. Privacy затемнює екран під кутом, тож сусіди не бачать вміст. Matte має матову поверхню: менше відблисків на сонці та відбитків пальців.</p></details>
+        <details><summary>Як правильно наклеїти захисне скло?<svg class="ic"><use href="#i-chev"/></svg></summary><p>Протріть екран вологою серветкою, потім сухою, приберіть пил наклейкою. Вирівняйте скло по краях і опустіть його на екран — воно приляже само. Бульбашки виженіть від центру до країв.</p></details>
+        <details><summary>Чи впливає захисне скло на чутливість сенсора?<svg class="ic"><use href="#i-chev"/></svg></summary><p>Ні. Товщина скла 0,33 мм, тож сенсор, Face ID і сканер відбитка працюють так само, як без нього.</p></details>
+        <details><summary>Чи можна використовувати скло разом із чохлом?<svg class="ic"><use href="#i-chev"/></svg></summary><p>Так. Скло трохи менше за екран по краях, тому не підіймається навіть у щільному чохлі.</p></details>
+        <details><summary>Як дізнатися, яке скло підійде до мого телефону?<svg class="ic"><use href="#i-chev"/></svg></summary><p>Оберіть бренд і модель у формі вгорі сторінки або залиште заявку — менеджер підбере сумісне скло та уточнить наявність.</p></details>
+        <details><summary>Скільки триває доставка?<svg class="ic"><use href="#i-chev"/></svg></summary><p>Відправляємо Новою Поштою в день замовлення (до 16:00). Зазвичай посилка приходить за 1–2 дні.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ФІНАЛЬНА ФОРМА -->
+  <section class="section" id="order">
+    <div class="container">
+      <div class="cta">
+        <div class="cta__text">
+          <h2>Не знаєте, яке скло обрати?</h2>
+          <p>Залиште номер — підберемо скло під вашу модель і передзвонимо протягом 15 хвилин у робочий час.</p>
+        </div>
+        <form class="lead-form" data-lead-form data-source="Форма внизу" novalidate>
+          <input class="hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <label class="field"><span>Ім'я</span><input name="name" type="text" autocomplete="name" placeholder="Ваше ім'я" required></label>
+          <label class="field"><span>Телефон</span><input name="phone" type="tel" autocomplete="tel" placeholder="+380 __ ___ __ __" required></label>
+          <label class="field field--wide"><span>Модель телефону</span><input name="model" type="text" placeholder="Наприклад, iPhone 15 Pro"></label>
+          <button class="btn btn--primary btn--lg field--wide" type="submit">Отримати консультацію <svg class="ic"><use href="#i-arrow"/></svg></button>
+          <p class="form-note field--wide">Натискаючи кнопку, ви погоджуєтесь на обробку персональних даних.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="container footer__row">
+    <a class="logo" href="#top">
+      <svg class="logo__mark" viewBox="0 0 40 44" aria-hidden="true"><path d="M20 2 3 8.5v11C3 30 10.3 38.8 20 42c9.7-3.2 17-12 17-22.5v-11z" fill="url(#lg)"/><path d="M13 9h14l-6 26h-8z" fill="#fff" opacity=".22"/><path d="M24 9h4l-6 26h-3z" fill="#fff" opacity=".35"/></svg>
+      <span class="logo__text"><b>GLASSIFY</b><small>Твій екран. Твій захист.</small></span>
+    </a>
+    <div class="footer__info">
+      <a href="tel:+380637671234">063 767 12 34</a>
+      <a href="mailto:glassifi.ua@gmail.com">glassifi.ua@gmail.com</a>
+    </div>
+    <div class="footer__contacts">
+      <a class="round-btn" href="tel:+380637671234" aria-label="Зателефонувати"><svg class="ic"><use href="#i-phone"/></svg></a>
+      <a class="round-btn" href="https://t.me/your_username" target="_blank" rel="noopener" aria-label="Telegram"><svg class="ic"><use href="#i-tg"/></svg></a>
+    </div>
+    <p class="footer__copy">© <span id="year"></span> GLASSIFY. Захисне скло для смартфонів.</p>
+  </div>
+</footer>
+
+<!-- МОДАЛКА -->
+<div class="modal" id="leadModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" hidden>
+  <div class="modal__backdrop" data-close-modal></div>
+  <div class="modal__box">
+    <button class="modal__close" type="button" data-close-modal aria-label="Закрити"><svg class="ic"><use href="#i-close"/></svg></button>
+    <h3 id="modalTitle">Оформити заявку</h3>
+    <p class="modal__sub">Менеджер передзвонить, уточнить наявність і оформить доставку.</p>
+    <form class="lead-form lead-form--modal" data-lead-form novalidate>
+      <input class="hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <input type="hidden" name="source">
+      <label class="field"><span>Ім'я</span><input name="name" type="text" autocomplete="name" placeholder="Ваше ім'я" required></label>
+      <label class="field"><span>Телефон</span><input name="phone" type="tel" autocomplete="tel" placeholder="+380 __ ___ __ __" required></label>
+      <label class="field"><span>Бренд</span><input name="brand" type="text" placeholder="Apple"></label>
+      <label class="field"><span>Модель</span><input name="model" type="text" placeholder="iPhone 15 Pro"></label>
+      <div class="field field--wide">
+        <span>Тип скла</span>
+        <div class="seg">
+          <label><input type="radio" name="glass" value="Classic" checked><span>Classic</span></label>
+          <label><input type="radio" name="glass" value="Privacy"><span>Privacy</span></label>
+          <label><input type="radio" name="glass" value="Matte"><span>Matte</span></label>
+          <label><input type="radio" name="glass" value="Не знаю, підберіть"><span>Підберіть</span></label>
+        </div>
+      </div>
+      <label class="field field--wide"><span>Коментар</span><textarea name="comment" rows="2" placeholder="Необов'язково"></textarea></label>
+      <button class="btn btn--primary btn--lg field--wide" type="submit">Надіслати заявку <svg class="ic"><use href="#i-arrow"/></svg></button>
+      <p class="form-note field--wide">Натискаючи кнопку, ви погоджуєтесь на обробку персональних даних.</p>
+    </form>
+  </div>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="script.js"></script>
+</body>
+</html>
