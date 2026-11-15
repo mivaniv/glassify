@@ -114,6 +114,50 @@
   })();
 
   /* ---------- відправка ---------- */
+  // Статичний хостинг (GitHub Pages, відкритий файл) — заявки на пошту через FormSubmit.
+  // Власний сервер (server.js) — через /api/lead (Telegram + пошта).
+  const LEAD_EMAIL = 'glassifi.ua@gmail.com';
+  const IS_STATIC = /\.github\.io$/.test(location.hostname) || location.protocol === 'file:';
+
+  const FIELD_LABELS = {
+    name: "Ім'я", phone: 'Телефон', brand: 'Бренд', model: 'Модель',
+    glass: 'Тип скла', comment: 'Коментар', source: 'Форма', utm: 'UTM',
+  };
+
+  async function sendLead(payload) {
+    if (payload.website) return; // honeypot
+
+    if (!IS_STATIC) {
+      const res = await fetch('/api/lead', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      });
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok || !data.ok) throw new Error(data.error || 'Помилка відправки');
+      return;
+    }
+
+    const body = {
+      _subject: `Нова заявка GLASSIFY — ${payload.name}, ${payload.phone}`,
+      _template: 'table',
+      _captcha: 'false',
+    };
+    Object.entries(FIELD_LABELS).forEach(([key, label]) => {
+      if (payload[key]) body[label] = payload[key];
+    });
+    const res = await fetch(`https://formsubmit.co/ajax/${LEAD_EMAIL}`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+      body: JSON.stringify(body),
+    });
+    const data = await res.json().catch(() => ({}));
+    if (!res.ok || String(data.success) !== 'true') {
+      console.error('FormSubmit:', data);
+      throw new Error('Не вдалося надіслати заявку. Зателефонуйте нам: 063 767 12 34');
+    }
+  }
+
   const toast = $('#toast');
   let toastTimer;
   function showToast(msg, isError) {
@@ -154,14 +198,7 @@
       btn.textContent = 'Надсилаємо…';
 
       try {
-        const res = await fetch('/api/lead', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(payload),
-        });
-        const data = await res.json().catch(() => ({}));
-        if (!res.ok || !data.ok) throw new Error(data.error || 'Помилка відправки');
-
+        await sendLead(payload);
         form.reset();
         if (!modal.hidden) closeModal();
         showToast('Дякуємо! Заявку отримано — скоро передзвонимо.');

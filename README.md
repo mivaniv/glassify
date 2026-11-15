@@ -12,6 +12,21 @@ public/script.js   тема, меню, підбір бренд/модель, м�
 .env.example       шаблон налаштувань
 ```
 
+## GitHub Pages (без сервера)
+
+Сайт автоматично публікується з папки `public/` при кожному пуші в `main` (workflow `.github/workflows/pages.yml`).
+
+Одноразове налаштування:
+1. Репозиторій має бути **публічним** (безкоштовні Pages не працюють для приватних).
+2. **Settings → Pages → Build and deployment → Source: GitHub Actions**.
+3. Перезапустіть workflow у вкладці **Actions** (або зробіть будь-який пуш).
+
+Адреса сайту: `https://mivaniv.github.io/glassify/`
+
+На Pages заявки надходять **лише на пошту** `glassifi.ua@gmail.com` через сервіс [FormSubmit](https://formsubmit.co).
+Перша заявка надсилає на цю пошту лист з підтвердженням: натисніть **Activate Form**, після чого заявки почнуть приходити.
+Telegram на Pages не працює: токен бота нема де сховати. Для Telegram використовуйте `server.js` на VPS.
+
 ## Запуск локально
 
 ```bash
